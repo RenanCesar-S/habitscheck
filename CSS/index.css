@@ -1,117 +1,134 @@
-/* Body */
+/* Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* html */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
+
+/* Body */
 
 body {
-    background-color: #09090A;
-    color: whitesmoke;
-    height: 100vh;
+    background-image: url(../images/K8lDBYU.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-/* Header */
-header {
+/* Container */
+
+.container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 48px;
-
-    position: fixed;
-    width: 100%;
-    background-color: #09090A ;
-}
-
-/* Button */
-button {
-    padding: 16px 24px;
-    border: 1px solid #8B5CF6;
-    border-radius: 8px;
-    background-color: transparent;
-    color: whitesmoke;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 125%;
-
-    display: flex;
-    gap: 12px;
     justify-content: center;
-    align-items: center;
+    width: 100%;
+    margin-top: 98px;
+}
+
+.card {
+    background-color: #ffffff80;
+    padding: 32px 64px;
+    border-radius: 4%;
+    box-shadow: 6px 4px 2px 0px #00000068;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #272262;
+}
+
+/* Inputs */
+
+.label-float input {
+    width: 100%;
+    padding: 4px;
+    display: inline-block;
+    border: 0;
+    border-bottom: 2px solid #272262;
+    background-color: transparent;
+    outline: none;
+    min-width: 256px;
+    font-size: 16px;
+    transition: all -3s ease-out;
+    border-radius: 0;
+}
+
+.label-float {
+    position: relative;
+    padding-top: 14px;
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+.label-float input:focus {
+    border-bottom: 2px solid #4038a0;
+}
+
+.label-float label {
+    color: #272262;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 12px;
+    transition: all .3s ease-out;
+}
+
+.label-float input:focus + label, .label-float input:valid + label {
+    font-size: 14px;
+    margin-top: 0;
+    color: #4038a0;
+}
+
+/* Button and hr list*/
+
+button {
+    background-color: transparent;
+    border-color: #272262;
+    color: #272262;
+    padding: 6px;
+    font-weight: bold;
+    font-size: 12pt;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all .4s ease-out;
 }
 
 button:hover {
-    background-color: #6c28d99f;
+    background-color: #272262;
+    color: #ffffff;
+
 }
 
-/* Form */
-#form-habits {
+.justify-center {
     display: flex;
-    padding: 182px 48px 48px;
-    width: fit-content;
-}
-
-.habits {
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.habit {
-    width: 40px;
-    height: 64px;
-    display: flex;
-    font-size: 32px;
     justify-content: center;
-    align-items: center;
 }
 
-.days {
-    display: flex;
-    gap: 48px;
-    margin-left: 32px;
-}
-
-.day {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.day div {
-    margin-bottom: 8px;
-    font-family: 'Roboto Mono';
-    font-size: 20px;
-    line-height: 125%;
-    font-weight: 700;
-    color: #A1A1AA;
-}
-
-/* Input */
-input {
-    appearance: none;
-    -webkit-appearance: none;
-
-    width: 64px;
-    height: 64px;
-    border: 2px solid #27272A;
-    border-radius: 8px;
-    background: #18181B;
-}
-
-/* Input-Pseudo-Selector */
-input:checked {
-    background: #8B5CF6;
-    border: 2px solid #A78BFA;
+hr {
+    margin-top: 12%;
+    margin-bottom: 12%;
+    width: 100%;
 
 }
 
-/* mobile settings */
-@media (max-width: 570px) {
-    button div {
-        display: none;
-    }
+a {
+    color: #7a3077;
+    font-size: 14pt;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: all .2s ease-out;
+}
+
+a:hover {
+    color: #272262;
+    text-decoration: underline;
 }
