@@ -26,7 +26,7 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 98px;
+    margin-top: 56px;
 }
 
 .card {
@@ -83,6 +83,10 @@ h1 {
     font-size: 14px;
     margin-top: 0;
     color: #4038a0;
+}
+
+input {
+    margin-top: 16px;
 }
 
 /* Button*/
