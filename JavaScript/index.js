@@ -1,26 +1,86 @@
-let btnlogin = document.querySelector('#login')
-let form = document.querySelector('#form')
+let user = document.querySelector('#user')
+let labelUser = document.querySelector('#label-user')
 
-form.addEventListener('submit', (event)=> {
+let password = document.querySelector('#password')
+let labelPassword = document.querySelector('#label-password')
 
-    event.preventDefault()
+let msgError = document.querySelector('#msgError')
+let msgSuccess = document.querySelector('#msgSuccess')
 
-    const user = document.querySelector('#user')
-    const pass = document.querySelector('#password')
-    let userConfirm = user.value
-    let passConfirm = pass.value
+function login() {
+    
+    let userList = []
 
-    if(userConfirm == "admin" && passConfirm == "admin") {
-    window.location.href = "./HTML/main.html"
-    return
-    } else {
-        alert('❌Insira o usuario e senha CORRETA❌')
-        alert('Para acessar use a palavra: admin, para username e password')
+    let userValid = {
+        name: '',
+        user: '',
+        password: '',
     }
-})
+    
 
-const createAccount = document.querySelector('#createAccount')
+    userList = JSON.parse(localStorage.getItem('userList'))
 
-function maintenance() {
-    alert('[ERROR] Esta função está em manutenção, por favor use a palavra: admin, como username e password para acessar! Agraçemos a compreensão!!!🥰')
+    if(localStorage.getItem('userList') == null && user.value == '' && password.value == '') {
+        labelUser.setAttribute('style', 'color: red')
+        user.setAttribute('style', 'border-color: red')
+        labelPassword.setAttribute('style', 'color: red')
+        password.setAttribute('style', 'border-color: red')
+        msgError.setAttribute('style', 'display: block')
+        msgError.innerHTML = 'Campos não preenchidos.'
+        user.focus()
+    } else if(localStorage.getItem('userList') == null) {
+        labelUser.setAttribute('style', 'color: red')
+        user.setAttribute('style', 'border-color: red')
+        labelPassword.setAttribute('style', 'color: red')
+        password.setAttribute('style', 'border-color: red')
+        msgError.setAttribute('style', 'display: block')
+        msgError.innerHTML = 'Usuário ou Senha incorretos.'
+        user.focus()
+    }
+
+    userList.forEach((item) => {
+        if(user.value == item.usernameCad && password.value == item.passwordCad){
+            userValid = {
+                name: item.nameCad,
+                user: item.usernameCad,
+                password: item.passwordCad,
+            }
+        }
+    })
+
+    if(user.value == '' && password.value == '') {
+        labelUser.setAttribute('style', 'color: red')
+        user.setAttribute('style', 'border-color: red')
+        labelPassword.setAttribute('style', 'color: red')
+        password.setAttribute('style', 'border-color: red')
+        msgError.setAttribute('style', 'display: block')
+        msgError.innerHTML = 'Campos não preenchidos.'
+        user.focus()
+    } else if(user.value == userValid.user && password.value == userValid.password) {
+        
+        localStorage.setItem('connect', JSON.stringify(userValid))
+        let connect = JSON.parse(localStorage.getItem('connect'))
+
+        msgError.setAttribute('style', 'display: none')
+        msgError.innerHTML = ''
+
+        msgSuccess.setAttribute('style', 'display: block')
+        msgSuccess.innerHTML = `Bem-vindo(a) ${connect.name}...`
+        setTimeout(()=>{
+            window.location.href = '../HTML/main.html'
+        }, 2000)
+
+        let token = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2)
+        localStorage.setItem('token', token)
+
+
+    } else {
+        labelUser.setAttribute('style', 'color: red')
+        user.setAttribute('style', 'border-color: red')
+        labelPassword.setAttribute('style', 'color: red')
+        password.setAttribute('style', 'border-color: red')
+        msgError.setAttribute('style', 'display: block')
+        msgError.innerHTML = 'Usuário ou Senha incorretos.'
+        user.focus()
+    }
 }

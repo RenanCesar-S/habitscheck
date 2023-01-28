@@ -16,32 +16,35 @@
         <div class="card">
             <h1>Register</h1>
 
+            <div id="msg-error"></div>
+            <div id="msg-success"></div>
+
             <div class="label-float">
                 <input type="text" id="name" placeholder="" required>
-                <label for="name">Name</label>
+                <label id="label-name" for="name">Name</label>
             </div>
 
             <div class="label-float">
                 <input type="text" id="user" placeholder="" required>
-                <label for="user">Username</label>
+                <label id="label-user" for="user">Username</label>
             </div>
 
             <div class="label-float">
                 <input type="password" id="password" placeholder="" required>
-                <label for="password">Password</label>
+                <label id="label-password" for="password">Password</label>
                 <i id="seePassword" class="fa fa-eye" aria-hidden="true"></i>
             </div>
 
             <div class="label-float">
                 <input type="password" id="password-confirm" placeholder="" required>
-                <label for="password-confirm">Confirm Password</label>
+                <label id="label-password-confirm" for="password-confirm">Confirm Password</label>
                 <i id="seeConfirmPassword" class="fa fa-eye" aria-hidden="true"></i>
 
             </div>
 
 
             <div class="justify-center">
-                <button>Register</button>
+                <button onclick="register()">Register</button>
             </div>
 
         </div>

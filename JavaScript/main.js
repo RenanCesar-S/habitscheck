@@ -2,6 +2,12 @@ const form = document.querySelector('#form-habits')
 const nlwSetup = new NLWSetup(form)
 const button = document.querySelector('header button')
 
+/* Login Verification */
+if(localStorage.getItem('token') == null) {
+    alert('Você precisa estar logado para acessar a página.')
+    window.location.href = '../index.html'
+}
+
 button.addEventListener('click', add)
 form.addEventListener("change", save)
 
