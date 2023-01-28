@@ -67,7 +67,7 @@ function login() {
         msgSuccess.setAttribute('style', 'display: block')
         msgSuccess.innerHTML = `Bem-vindo(a) ${connect.name}...`
         setTimeout(()=>{
-            window.location.href = '../HTML/main.html'
+            window.location.href = './HTML/main.html'
         }, 2000)
 
         let token = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2)
