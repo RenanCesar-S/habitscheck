@@ -33,6 +33,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 
 O Habits é um app para ajudar a rastrear os hábitos.
+O projeto usa um meio de login com localStorage.
 
 - [Visite o projeto online](https://renancesar-s.github.io/habitscheck/)
 
